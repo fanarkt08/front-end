@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router';
+import { Button } from 'react-bootstrap';
 
 function Category() {
   const { category } = useParams();
@@ -11,7 +12,9 @@ function Category() {
   return (
     <div style={{ padding: '2rem' }}>
       <h1>Catégorie : {category}</h1>
-      <button onClick={handleReturn}>Retour à la page d'accueil</button>
+      <Button variant="primary" onClick={handleReturn}>
+        Retour à la page d'accueil
+      </Button>
     </div>
   );
 }
