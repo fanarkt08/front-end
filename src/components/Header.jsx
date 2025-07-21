@@ -1,12 +1,22 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router';
+import { NavLink, useMatch } from 'react-router';
 import '../assets/Header.css';
 
 function Header() {
+  const match = useMatch('/categorie/:category');
+
   return (
     <header>
       <Navbar bg="light" expand="lg">
-        <Container>
+        <Container className="d-flex justify-content-between align-items-center">
+          {match ? (
+            <span className="me-3 fw-bold">
+              Catégorie : {match.params.category}
+            </span>
+          ) : (
+            <span className="me-3 fw-bold">&nbsp;</span>
+          )}
+
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="ms-auto">
